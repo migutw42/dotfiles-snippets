@@ -1,6 +1,5 @@
 # dotfiles-snippets
 
-## 概要（Description）
 使用するdotfilesでよく使う記述集。
 
 ## 動機（Motivation）
