@@ -4,7 +4,7 @@
 使用するdotfilesでよく使う記述集。
 
 ## 依存ツール
-dependencies.mdを参照。
+[dependencies.md](https://github.com/migutw42/dotfiles-snippets/blob/master/dependencies.md)を参照。
 
 ## なぜdotfilesを自動インストールしないのか
 1. 常に似たような環境をセットアップするわけではないから。
