@@ -1,7 +1,10 @@
 # dotfiles-snippets
 
 ## 概要
-使用するdotfilesでよく使う記述集
+使用するdotfilesでよく使う記述集。
+
+## 依存ツール
+dependencies.mdを参照。
 
 ## なぜdotfilesを自動インストールしないのか
 1. 常に似たような環境をセットアップするわけではないから。
