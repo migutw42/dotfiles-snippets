@@ -43,7 +43,6 @@ let g:quickrun_config = {
 " Commands
 command! SettingsEdit e ~/.config/nvim/init.vim
 command! SettingsReload so ~/.config/nvim/init.vim
-command! TmuxOpenSubPanel !tmux split-window -v -p 30
 
 " Keybinds
 nnoremap <Space>p :Files<CR>
