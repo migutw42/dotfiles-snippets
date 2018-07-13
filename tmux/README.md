@@ -8,3 +8,10 @@
 ```
 $ brew install tmux
 ```
+
+## プラグインマネージャー
+以下のコマンドで入れる。
+
+```
+$ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
