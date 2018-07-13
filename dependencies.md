@@ -5,3 +5,5 @@
 * tmux
 * ranger
 * asdf-vm
+* fzf
+* fish
