@@ -11,6 +11,6 @@
 4. メンテが辛い。
 
 ## 依存ツール
-[dependencies.md](dependencies.md)を参照。
+基本的に[dependencies.md](dependencies.md)の中身を入れておけばOK。
 
 
