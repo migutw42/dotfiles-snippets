@@ -44,11 +44,24 @@ let g:quickrun_config = {
 \   },
 \}
 
+" Functions
+function! ToggleMouse()
+    " check if mouse is enabled
+    if &mouse == 'a'
+        " disable mouse
+        set mouse=
+    else
+        " enable mouse everywhere
+        set mouse=a
+    endif
+endfunc
+
 " Commands
 command! SettingsEdit e ~/.config/nvim/init.vim
 command! SettingsReload so ~/.config/nvim/init.vim
 command! MouseOn set mouse=a
 command! MouseOff set mouse=
+command! MouseToggle call ToggleMouse()
 
 " Keybinds
 nnoremap <Space>p :Files<CR>
@@ -59,10 +72,13 @@ nnoremap <Space>f :BLines<CR>
 nnoremap <Space>kb :NERDTreeToggle<CR>
 nnoremap <Space>r :QuickRun<CR>
 nnoremap <Space>q :bd<CR>
+nnoremap <Space>s :split<CR>
+nnoremap <Space>v :vsplit<CR>
 nnoremap <Space><Up> <C-w><Up>
 nnoremap <Space><Down> <C-w><Down>
 nnoremap <Space><Right> <C-w><Right>
 nnoremap <Space><Left> <C-w><Left>
+nnoremap <Space>m :MouseToggle<CR>
 nnoremap <ESC><ESC> :noh<CR>
 
 " Golang tag settings.
