@@ -1,3 +1,4 @@
+
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
@@ -13,6 +14,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
+Plug 'jiangmiao/auto-pairs'
+
 call plug#end()
 
 
@@ -51,7 +54,8 @@ nnoremap <Space>b :Buffers<CR>
 nnoremap <Space>@ :TmuxOpenSubPanel<CR>
 nnoremap <Space>f :BLines<CR>
 nnoremap <Space>kb :NERDTreeToggle<CR>
-nnoremap <Space>q <C-w>q
+nnoremap <Space>r :QuickRun<CR>
+nnoremap <Space>q :bd<CR>
 nnoremap <Space><Up> <C-w><Up>
 nnoremap <Space><Down> <C-w><Down>
 nnoremap <Space><Right> <C-w><Right>
