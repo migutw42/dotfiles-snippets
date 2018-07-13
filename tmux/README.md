@@ -15,3 +15,9 @@ $ brew install tmux
 ```
 $ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
+
+## 設定ファイルパス
+
+```
+~/.tmux.conf
+```
