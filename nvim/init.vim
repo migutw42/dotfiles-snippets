@@ -5,7 +5,6 @@ Plug 'editorconfig/editorconfig-vim'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'majutsushi/tagbar'
-Plug 'szw/vim-tags'
 Plug 'thinca/vim-quickrun'
 Plug 'lambdalisue/vim-gita'
 Plug 'w0rp/ale'
@@ -15,6 +14,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'jiangmiao/auto-pairs'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go' }
 
 call plug#end()
 
@@ -27,6 +27,7 @@ set number
 set hidden
 set cursorline
 set termguicolors
+set mouse=
 
 " Color settings.
 set background=dark
@@ -46,6 +47,8 @@ let g:quickrun_config = {
 " Commands
 command! SettingsEdit e ~/.config/nvim/init.vim
 command! SettingsReload so ~/.config/nvim/init.vim
+command! MouseOn set mouse=a
+command! MouseOff set mouse=
 
 " Keybinds
 nnoremap <Space>p :Files<CR>
@@ -60,3 +63,34 @@ nnoremap <Space><Up> <C-w><Up>
 nnoremap <Space><Down> <C-w><Down>
 nnoremap <Space><Right> <C-w><Right>
 nnoremap <Space><Left> <C-w><Left>
+nnoremap <ESC><ESC> :noh<CR>
+
+" Golang tag settings.
+let g:tagbar_type_go = {
+	\ 'ctagstype' : 'go',
+	\ 'kinds'     : [
+		\ 'p:package',
+		\ 'i:imports:1',
+		\ 'c:constants',
+		\ 'v:variables',
+		\ 't:types',
+		\ 'n:interfaces',
+		\ 'w:fields',
+		\ 'e:embedded',
+		\ 'm:methods',
+		\ 'r:constructor',
+		\ 'f:functions'
+	\ ],
+	\ 'sro' : '.',
+	\ 'kind2scope' : {
+		\ 't' : 'ctype',
+		\ 'n' : 'ntype'
+	\ },
+	\ 'scope2kind' : {
+		\ 'ctype' : 't',
+		\ 'ntype' : 'n'
+	\ },
+	\ 'ctagsbin'  : 'gotags',
+	\ 'ctagsargs' : '-sort -silent'
+	\ }
+
