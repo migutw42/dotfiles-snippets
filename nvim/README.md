@@ -17,3 +17,7 @@ $ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 ```
 ~/.config/nvim/init.vim
 ```
+## 依存ソフト
+
+### 重要
+* fzf
