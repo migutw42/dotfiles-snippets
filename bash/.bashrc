@@ -4,8 +4,11 @@ source /usr/local/opt/asdf/asdf.sh
 
 alias ls='gls --color=auto'
 alias ll='ls -al'
+alias less='less -R'
+
 alias settings_edit='nvim ~/.bashrc'
 alias settings_reload='exec $SHELL -l'
+alias reload='settings_reload'
 
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
