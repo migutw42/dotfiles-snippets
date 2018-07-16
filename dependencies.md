@@ -7,3 +7,4 @@
 * asdf-vm
 * fzf
 * fish
+* ghq
