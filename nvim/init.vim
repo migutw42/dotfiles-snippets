@@ -79,6 +79,7 @@ command! MouseToggle call ToggleMouse()
 command! SE SettingsEdit
 command! SR SettingsReload
 command! IDE NERDTreeToggle | TagbarToggle
+
 " Keybinds
 nnoremap <Space>p :Files<CR>
 nnoremap <Space>F :Files<CR>
