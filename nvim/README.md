@@ -12,7 +12,7 @@ $ pip3 install neovim
 ```
 
 ## プラグインマネージャー
-以下のコマンドで入れる。
+以下のコマンドで入れる
 
 ```
 $ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
