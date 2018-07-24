@@ -4,6 +4,13 @@
 Wiki参照
 > https://github.com/neovim/neovim/wiki/Installing-Neovim
 
+Python3とpip3も必要
+
+```
+# Python3はパッケージマネージャーか、asdｆで入れる
+$ pip3 install neovim
+```
+
 ## プラグインマネージャー
 以下のコマンドで入れる。
 
