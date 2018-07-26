@@ -81,23 +81,15 @@ command! SR SettingsReload
 command! IDE NERDTreeToggle | TagbarToggle
 
 " Keybinds
-nnoremap <Space>p :Files<CR>
-nnoremap <Space>F :Files<CR>
-nnoremap <Space>P :Commands<CR>
-nnoremap <Space>C :Commands<CR>
+nnoremap <Space>f :Files<CR>
+nnoremap <Space>c :Commands<CR>
 nnoremap <Space>b :Buffers<CR>
-nnoremap <Space>B :Buffers<CR>
-nnoremap <Space>f :BLines<CR>
 nnoremap <Space>/ :BLines<CR>
 nnoremap <Space>kb :NERDTreeToggle<CR>
 nnoremap <Space>r :QuickRun<CR>
-nnoremap <Space>R :QuickRun<CR>
-nnoremap <Space>q :close<CR>
-nnoremap <Space>Q :close<CR>
+nnoremap <Space>q :bd<CR>
 nnoremap <Space>s :split<CR>
-nnoremap <Space>S :split<CR>
 nnoremap <Space>v :vsplit<CR>
-nnoremap <Space>V :vsplit<CR>
 nnoremap <Space><Up> <C-w><Up>
 nnoremap <Space><Down> <C-w><Down>
 nnoremap <Space><Right> <C-w><Right>
