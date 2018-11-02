@@ -14,11 +14,17 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tyru/caw.vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go' }
+Plug 'ElmCast/elm-vim'
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
     \ }
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'mattn/emmet-vim'
+Plug 'francoiscabrol/ranger.vim'
+Plug 'iberianpig/tig-explorer.vim'
+Plug 'rbgrouleff/bclose.vim'
+
 
 call plug#end()
 
@@ -31,6 +37,7 @@ set number
 set hidden
 set cursorline
 set termguicolors
+set mouse=a
 
 " Color settings.
 set background=dark
@@ -47,6 +54,11 @@ let g:ale_open_list = 1
 let g:ale_keep_list_window_open = 1
 let g:ale_sign_column_always = 1
 
+let g:ale_linters = {'ruby': []}
+
+" filer settings.
+let g:NERDTreeHijackNetrw = 0
+let g:ranger_replace_netrw = 1 
 " Quickrun settings.
 let g:quickrun_config = {
 \   "_" : {
