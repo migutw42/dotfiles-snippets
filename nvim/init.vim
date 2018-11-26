@@ -5,12 +5,9 @@ Plug 'editorconfig/editorconfig-vim'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'majutsushi/tagbar'
-Plug 'thinca/vim-quickrun'
 Plug 'lambdalisue/vim-gita'
 Plug 'w0rp/ale'
 Plug 'chriskempson/base16-vim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tyru/caw.vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go' }
@@ -24,13 +21,14 @@ Plug 'mattn/emmet-vim'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'iberianpig/tig-explorer.vim'
 Plug 'rbgrouleff/bclose.vim'
+Plug 'ryanoasis/vim-devicons'
+Plug 'sheerun/vim-polyglot'
+Plug 'thinca/vim-quickrun'
+Plug 'itchyny/lightline.vim'
 
 
 call plug#end()
 
-
-" Use vim-ailine.
-let g:airline#extensions#tabline#enabled = 1
 
 " Vim settings.
 set number
@@ -43,28 +41,11 @@ set mouse=a
 set background=dark
 colorscheme base16-monokai
 
-" Lint settings.
-let g:airline#extensions#ale#enabled = 1
-let g:ale_set_loclist = 0
-let g:ale_set_quickfix = 1
-let g:ale_open_list = 1
-" Set this if you want to.
-" This can be useful if you are combining ALE with
-" some other plugin which sets quickfix errors, etc.
-let g:ale_keep_list_window_open = 1
-let g:ale_sign_column_always = 1
-
 let g:ale_linters = {'ruby': []}
 
-" filer settings.
-let g:NERDTreeHijackNetrw = 0
-let g:ranger_replace_netrw = 1 
-" Quickrun settings.
-let g:quickrun_config = {
-\   "_" : {
-\       "outputter/buffer/split" : ":botright 8sp"
-\   },
-\}
+let g:quickrun_config={'_': {'split': 'below'}}
+	
+
 
 " Deoplete settings.
 let g:deoplete#enable_at_startup = 1
@@ -90,23 +71,16 @@ command! MouseOff set mouse=
 command! MouseToggle call ToggleMouse()
 command! SE SettingsEdit
 command! SR SettingsReload
-command! IDE NERDTreeToggle | TagbarToggle
 
 " Keybinds
+nnoremap <Space>p :Files<CR>
 nnoremap <Space>f :Files<CR>
-nnoremap <Space>c :Commands<CR>
 nnoremap <Space>b :Buffers<CR>
 nnoremap <Space>/ :BLines<CR>
-nnoremap <Space>kb :NERDTreeToggle<CR>
-nnoremap <Space>r :QuickRun<CR>
-nnoremap <Space>q :bd<CR>
-nnoremap <Space>s :split<CR>
-nnoremap <Space>v :vsplit<CR>
-nnoremap <Space><Up> <C-w><Up>
-nnoremap <Space><Down> <C-w><Down>
-nnoremap <Space><Right> <C-w><Right>
-nnoremap <Space><Left> <C-w><Left>
-nnoremap <Space>m :MouseToggle<CR>
+nnoremap <S-Up> <C-w><Up>
+nnoremap <S-Down> <C-w><Down>
+nnoremap <S-Right> <C-w><Right>
+nnoremap <S-Left> <C-w><Left>
 nnoremap <ESC><ESC> :noh<CR>
 
 " Golang tag settings.
@@ -152,3 +126,7 @@ nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+
+" Emmet
+imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+
