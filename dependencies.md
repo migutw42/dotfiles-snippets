@@ -8,3 +8,6 @@
 * fzf
 * fish
 * ghq
+
+## フォント
+* [nerd-fonts](https://github.com/ryanoasis/nerd-fonts)
