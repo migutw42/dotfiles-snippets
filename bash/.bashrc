@@ -9,6 +9,8 @@ alias less='less -R'
 alias settings_edit='nvim ~/.bashrc'
 alias settings_reload='exec $SHELL -l'
 alias reload='settings_reload'
+alias vi='nvim'
+alias vim='nvim'
 
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
