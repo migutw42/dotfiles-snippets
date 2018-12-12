@@ -74,14 +74,21 @@ command! SR SettingsReload
 
 " Keybinds
 nnoremap <Space>p :Files<CR>
-nnoremap <Space>f :Files<CR>
-nnoremap <Space>b :Buffers<CR>
+nnoremap <C-p> :Files<CR>
+nnoremap <C-t> :Files<CR>
 nnoremap <Space>/ :BLines<CR>
 nnoremap <S-Up> <C-w><Up>
 nnoremap <S-Down> <C-w><Down>
 nnoremap <S-Right> <C-w><Right>
 nnoremap <S-Left> <C-w><Left>
-nnoremap <ESC><ESC> :noh<CR>
+nnoremap <C-q> :bd<CR>
+
+
+" Keybinds(interactive)
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-h> <Left>
+inoremap <C-l> <Right>
 
 " Golang tag settings.
 let g:tagbar_type_go = {
@@ -129,4 +136,3 @@ nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 
 " Emmet
 imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
-
