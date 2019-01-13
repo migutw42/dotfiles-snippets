@@ -1,5 +1,8 @@
 source /usr/local/opt/asdf/asdf.fish
 
+set GOPATH $HOME/go                                                                  
+set PATH $GOPATH/bin $PATH  
+
 alias ls='gls --color=auto'
 alias ll='ls -al'
 alias less='less -R'
