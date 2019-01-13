@@ -37,6 +37,9 @@ set cursorline
 set termguicolors
 set mouse=a
 
+" clip board "
+set clipboard+=unnamedplus
+
 " Color settings.
 set background=dark
 colorscheme base16-monokai
