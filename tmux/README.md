@@ -24,5 +24,5 @@ $ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 ## tpmの有効化
 
-`prefix` + <kbd>I</kbd> (大文字)
+`prefix` + <kbd>I</kbd> （大文字）
   
