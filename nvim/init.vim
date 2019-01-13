@@ -37,7 +37,7 @@ set cursorline
 set termguicolors
 set mouse=a
 
-" clip board "
+" clipboard "
 set clipboard+=unnamedplus
 
 " Color settings.
