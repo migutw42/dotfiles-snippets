@@ -40,7 +40,6 @@ function fish_prompt
 end
 
 function ranger-cd                                                               
-
   set tempfile '/tmp/chosendir'                                                  
   ranger --choosedir=$tempfile (pwd)                                    
 
@@ -51,7 +50,6 @@ function ranger-cd
   end                                                                            
 
   rm -f $tempfile                                                                
-
 end                                                                              
 
 function fish_user_key_bindings                                                  
