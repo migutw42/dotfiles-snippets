@@ -38,3 +38,22 @@ function fish_prompt
         printf '%s ' (__fish_git_prompt)
        set_color normal
 end
+
+function ranger-cd                                                               
+
+  set tempfile '/tmp/chosendir'                                                  
+  ranger --choosedir=$tempfile (pwd)                                    
+
+  if test -f $tempfile                                                           
+      if [ (cat $tempfile) != (pwd) ]                                            
+        cd (cat $tempfile)                                                       
+      end                                                                        
+  end                                                                            
+
+  rm -f $tempfile                                                                
+
+end                                                                              
+
+function fish_user_key_bindings                                                  
+    bind \co 'ranger-cd ; fish_prompt'                                           
+end
