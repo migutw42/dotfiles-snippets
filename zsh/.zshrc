@@ -1,8 +1,6 @@
 bindkey -e
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
-
 fpath=(~/.zsh/completion $fpath)
 
 export ZPLUG_HOME=$HOME/.zplug
@@ -12,8 +10,6 @@ zplug zsh-users/zsh-syntax-highlighting
 zplug zsh-users/zsh-autosuggestions, defer:2  
 zplug zsh-users/zsh-completions
 zplug themes/simple, from:oh-my-zsh
-zplug mattberther/zsh-pyenv
-
 
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
