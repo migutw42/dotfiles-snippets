@@ -33,7 +33,10 @@ function ghq-fzf() {
 zle -N ghq-fzf
 bindkey "^g" ghq-fzf
 
-export EDITOR=vim
+export EDITOR=nvim
+
+alias vi=nvim
+alias vim=nvim
 
 export HISTFILE=${HOME}/.zsh_history
 export HISTSIZE=1000
