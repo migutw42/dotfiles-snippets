@@ -25,6 +25,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'sheerun/vim-polyglot'
 Plug 'thinca/vim-quickrun'
 Plug 'itchyny/lightline.vim'
+Plug 'djoshea/vim-autoread'
 
 
 call plug#end()
