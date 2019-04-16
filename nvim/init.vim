@@ -2,11 +2,10 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'editorconfig/editorconfig-vim'
-Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'chriskempson/base16-vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tyru/caw.vim'
-Plug 'mattn/emmet-vim'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'iberianpig/tig-explorer.vim'
 Plug 'rbgrouleff/bclose.vim'
@@ -22,6 +21,8 @@ call plug#end()
 " Vim settings.
 set number
 set hidden
+set nobackup
+set nowritebackup
 set cursorline
 set termguicolors
 set mouse=a
@@ -67,6 +68,7 @@ nnoremap <S-Down> <C-w><Down>
 nnoremap <S-Right> <C-w><Right>
 nnoremap <S-Left> <C-w><Left>
 nnoremap <C-q> :bd<CR>
+nnoremap <C-k><C-b> :NERDTreeToggle<CR>
 
 
 " Keybinds(interactive)
@@ -77,4 +79,3 @@ inoremap <C-l> <Right>
 
 " NERDTree
 let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 1
