@@ -1,40 +1,3 @@
-call plug#begin('~/.local/share/nvim/plugged')
-
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'editorconfig/editorconfig-vim'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'chriskempson/base16-vim'
-Plug 'jiangmiao/auto-pairs'
-Plug 'tyru/caw.vim'
-Plug 'francoiscabrol/ranger.vim'
-Plug 'iberianpig/tig-explorer.vim'
-Plug 'rbgrouleff/bclose.vim'
-Plug 'sheerun/vim-polyglot'
-Plug 'thinca/vim-quickrun'
-Plug 'itchyny/lightline.vim'
-Plug 'djoshea/vim-autoread'
-Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
-
-call plug#end()
-
-
-" Vim settings.
-set number
-set hidden
-set nobackup
-set nowritebackup
-set cursorline
-set termguicolors
-set mouse=a
-
-" clipboard "
-set clipboard+=unnamedplus
-
-" Color settings.
-set background=dark
-colorscheme base16-monokai
-
-
 let g:quickrun_config={'_': {'split': 'below'}}
 
 " Functions
@@ -61,7 +24,6 @@ command! SR SettingsReload
 " Keybinds
 nnoremap <Space>p :Files<CR>
 nnoremap <C-p> :Files<CR>
-nnoremap <C-t> :Files<CR>
 nnoremap <Space>/ :BLines<CR>
 nnoremap <S-Up> <C-w><Up>
 nnoremap <S-Down> <C-w><Down>
