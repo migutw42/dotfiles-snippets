@@ -9,6 +9,7 @@ source $ZPLUG_HOME/init.zsh
 zplug zsh-users/zsh-syntax-highlighting
 zplug zsh-users/zsh-autosuggestions, defer:2  
 zplug zsh-users/zsh-completions
+zplug migutw42/zsh-fzf-ghq
 zplug themes/simple, from:oh-my-zsh
 
 if ! zplug check --verbose; then
@@ -19,22 +20,7 @@ if ! zplug check --verbose; then
 fi
 zplug load --verbose
 
-function ghq-fzf() {
-  local selected_dir=$(ghq list -p | fzf --query="$LBUFFER")
-
-  if [ -n "$selected_dir" ]; then
-    BUFFER="cd ${selected_dir}"
-    zle accept-line
-  fi
-
-  zle reset-prompt
-}
-
-zle -N ghq-fzf
-bindkey "^g" ghq-fzf
-
 export EDITOR=nvim
-
 alias vi=nvim
 alias vim=nvim
 
@@ -46,5 +32,7 @@ setopt EXTENDED_HISTORY
 
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
-export PATH=$(go env GOPATH)/bin:$PATH
-export PATH="/usr/local/sbin:$PATH"
+source ~/.config/shell/*.sh
+
+. $HOME/.asdf/asdf.sh
+. $HOME/.asdf/completions/asdf.bash
