@@ -3,10 +3,18 @@
 ## インストール
 パッケージマネージャーで入れる。
 
+```bash
+# Mac
+brew install ranger
+
+# debian
+sudo apt install ranger
+```
+
 ## セットアップ
 以下のコマンドを実行
 
-```
+```bash
 ranger --copy-config=all
 sed -i -e 's/set draw_borders false/set draw_borders true/g' ~/.config/ranger/rc.conf 
 cd /tmp
