@@ -2,6 +2,7 @@
 
 ## 基本
 * neovim
+* emacs
 * tmux
 * ranger
 * asdf-vm
