@@ -38,13 +38,20 @@
 (use-package atom-one-dark-theme
   :config
   (load-theme 'atom-one-dark t))
+(use-package init-loader
+  :config
+  (setq init-loader-show-log-after-init 'error-only)
+  (init-loader-load))
+(use-package magit)
+(use-package projectile)
+(use-package treemacs)
 
 (electric-pair-mode 1)
 (xterm-mouse-mode 1)
-(global-display-line-numbers-mode)
+(global-display-line-numbers-mode 1)
 
 (menu-bar-mode -1)
-(tab-bar-mode)
+(global-tab-line-mode 1)
 
 (ivy-mode 1)
 (setq ivy-use-virtual-buffers t)
@@ -66,12 +73,24 @@
 (global-set-key (kbd "C-c j") 'counsel-git-grep)
 (global-set-key (kbd "C-c k") 'counsel-ag)
 (global-set-key (kbd "C-c b") 'counsel-switch-buffer)
+(global-set-key (kbd "C-c f") 'counsel-fzf)
 (global-set-key (kbd "C-x l") 'counsel-locate)
-(global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
 (define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history)
 
-(setq backup-directory-alist
-  (cons (cons ".*" (expand-file-name "~/.emacs.d/backup"))
-        backup-directory-alist))
-(setq auto-save-file-name-transforms
-  `((".*", (expand-file-name "~/.emacs.d/backup/") t)))
+(setq make-backup-files nil)
+(setq auto-save-default nil)
+(setq custom-file (concat user-emacs-directory "/custom.el"))
+
+;;; projectile
+(projectile-mode +1)
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+(with-eval-after-load 'magit
+  (setq magit-repository-directories
+        '(;; Directory containing project root directories
+          ("~/Projects/"      . 3))))
+  (with-eval-after-load 'projectile
+    (when (require 'magit nil t)
+    (mapc #'projectile-add-known-project
+          (mapcar #'file-name-as-directory (magit-list-repos)))
+    ;; Optionally write to persistent `projectile-known-projects-file'
+    (projectile-save-known-projects)))
