@@ -82,7 +82,7 @@
 (setq custom-file (concat user-emacs-directory "/custom.el"))
 
 ;;; projectile
-(projectile-mode +1)
+(projectile-mode 1)
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 (with-eval-after-load 'magit
   (setq magit-repository-directories
