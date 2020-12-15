@@ -103,11 +103,11 @@ let g:airline_powerline_fonts = 1
 " fzf.vim {{{1
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
 
-nnoremap <silent> <Leader>f     :<C-u>FzfPreviewDirectoryFiles<CR>
-nnoremap <silent> <Leader>ff     :<C-u>FzfPreviewProjectFiles<CR>
-nnoremap <silent> <Leader>b     :<C-u>FzfPreviewBuffers<CR>
-nnoremap <silent> <Leader>/     :<C-u>FzfPreviewLines -add-fzf-arg=--no-sort -add-fzf-arg=--query="'"<CR>
-nnoremap <silent> <Leader>//    :<C-u>FzfPreviewProjectGrep<Space>
+nnoremap <silent> <Leader>f :<C-u>FzfPreviewDirectoryFiles<CR>
+nnoremap <silent> <Leader>ff :<C-u>FzfPreviewProjectFiles<CR>
+nnoremap <silent> <Leader>b :<C-u>FzfPreviewBuffers<CR>
+nnoremap <silent> <Leader>/ :<C-u>FzfPreviewLines -add-fzf-arg=--no-sort -add-fzf-arg=--query="'"<CR>
+nnoremap <Leader>? :<C-u>FzfPreviewProjectGrep<Space>
 nnoremap <silent> <Leader>fc :Commands<CR>
 nnoremap <silent> <Leader>fcc :CocFzfList<CR>
 
