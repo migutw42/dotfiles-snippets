@@ -17,7 +17,6 @@ Plug 'yuki-ycino/fzf-preview.vim', { 'branch': 'release', 'do': ':UpdateRemotePl
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-Plug 'crusoexia/vim-monokai'
 Plug 'w0ng/vim-hybrid'
 
 Plug 'preservim/nerdcommenter'
@@ -60,8 +59,17 @@ set noswapfile
 set cursorline
 set showtabline=2
 set mouse=a
-colorscheme monokai
-highlight Normal guibg=none
+
+set hidden
+set nobackup
+set nowritebackup
+set cmdheight=2
+set updatetime=300
+set shortmess+=c
+set signcolumn=yes
+
+colorscheme hybrid
+
 
 " keybinding {{{1
 let mapleader = "\<Space>"
@@ -70,6 +78,7 @@ nnoremap <silent> gj G
 nnoremap <silent> gk gg
 nnoremap <Leader>o :e
 nnoremap <silent> <Leader>n :ene<CR>
+nnoremap <silent> <Leader>w :update<CR>
 nnoremap <silent> <Leader>q :Bdelete<CR>
 nnoremap <silent> <Leader>s :split<CR>
 nnoremap <silent> <Leader>v :vsplit<CR>
@@ -77,6 +86,9 @@ nnoremap <silent> <C-h> <C-w>h
 nnoremap <silent> <C-j> <C-w>j
 nnoremap <silent> <C-k> <C-w>k
 nnoremap <silent> <C-l> <C-w>l
+nnoremap <silent> <ESC><ESC> :nohl<CR>
+nnoremap <silent> gn :bnext<CR>
+nnoremap <silent> gb :bprevious<CR>
 
 " folding {{{1
 augroup folding
@@ -107,14 +119,6 @@ function! s:select_current_word()
   endif
   return "*\<Plug>(coc-cursors-word):nohlsearch\<CR>"
 endfunc
-
-set hidden
-set nobackup
-set nowritebackup
-set cmdheight=2
-set updatetime=300
-set shortmess+=c
-set signcolumn=yes
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
@@ -185,3 +189,4 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 nnoremap <silent> <leader>t :Fern . -drawer<CR>
 nnoremap <silent> <leader>e :Fern . <CR>
 let g:fern#renderer = "nerdfont"
+let g:fern#default_hidden = 1
