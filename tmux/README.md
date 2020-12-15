@@ -9,20 +9,8 @@
 $ brew install tmux
 ```
 
-## プラグインマネージャー
-以下のコマンドで入れる。
-
-```
-$ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-```
-
 ## 設定ファイルパス
 
 ```
 ~/.tmux.conf
 ```
-
-## tpmの有効化
-
-`prefix` + <kbd>I</kbd> （大文字）
-  
