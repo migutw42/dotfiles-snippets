@@ -10,5 +10,5 @@
 ```
 
 ## プラグイン
-fishermanから入れる
-https://github.com/fisherman/fisherman
+[fisherman](https://github.com/fisherman/fisherman)から入れる
+
