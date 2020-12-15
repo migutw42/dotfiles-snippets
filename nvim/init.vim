@@ -19,7 +19,7 @@ Plug 'vim-airline/vim-airline-themes'
 
 Plug 'w0ng/vim-hybrid'
 
-Plug 'preservim/nerdcommenter'
+Plug 'tyru/caw.vim'
 
 Plug 'vim-test/vim-test'
 Plug 'puremourning/vimspector'
@@ -190,3 +190,4 @@ nnoremap <silent> <leader>t :Fern . -drawer<CR>
 nnoremap <silent> <leader>e :Fern . <CR>
 let g:fern#renderer = "nerdfont"
 let g:fern#default_hidden = 1
+
