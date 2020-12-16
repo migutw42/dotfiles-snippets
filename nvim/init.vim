@@ -20,6 +20,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'w0ng/vim-hybrid'
 
 Plug 'tyru/caw.vim'
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
 Plug 'vim-test/vim-test'
 Plug 'puremourning/vimspector'
@@ -79,7 +80,7 @@ nnoremap <silent> gk gg
 nnoremap <Leader>o :e
 nnoremap <silent> <Leader>n :ene<CR>
 nnoremap <silent> <Leader>w :update<CR>
-nnoremap <silent> <Leader>q :Bdelete<CR>
+nnoremap <silent> <Leader>q :call CloseBuffer()<CR>
 nnoremap <silent> <Leader>s :split<CR>
 nnoremap <silent> <Leader>v :vsplit<CR>
 nnoremap <silent> <C-h> <C-w>h
@@ -89,6 +90,14 @@ nnoremap <silent> <C-l> <C-w>l
 nnoremap <silent> <ESC><ESC> :nohl<CR>
 nnoremap <silent> gn :bnext<CR>
 nnoremap <silent> gb :bprevious<CR>
+
+function! g:CloseBuffer()
+  if stridx(bufname("%"), "fern://drawer") == 0 
+    execute "FernDo close"
+  else
+    execute "Bdelete"
+  endif
+endfunc
 
 " folding {{{1
 augroup folding
@@ -103,13 +112,15 @@ let g:airline_powerline_fonts = 1
 " fzf.vim {{{1
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
 
-nnoremap <silent> <Leader>f :<C-u>FzfPreviewDirectoryFiles<CR>
-nnoremap <silent> <Leader>ff :<C-u>FzfPreviewProjectFiles<CR>
+nnoremap <silent> <Leader>f :<C-u>FzfPreviewProjectFiles<CR>
+nnoremap <silent> <Leader>F :<C-u>FzfPreviewDirectoryFiles<CR>
 nnoremap <silent> <Leader>b :<C-u>FzfPreviewBuffers<CR>
 nnoremap <silent> <Leader>/ :<C-u>FzfPreviewLines -add-fzf-arg=--no-sort -add-fzf-arg=--query="'"<CR>
 nnoremap <Leader>? :<C-u>FzfPreviewProjectGrep<Space>
-nnoremap <silent> <Leader>fc :Commands<CR>
-nnoremap <silent> <Leader>fcc :CocFzfList<CR>
+nnoremap <silent> <Leader>c :Commands<CR>
+nnoremap <silent> <Leader>C :CocFzfList<CR>
+nnoremap <silent> <Leader>g :FzfPreviewGitActions<CR>
+nnoremap <silent> <Leader>G :FzfPreviewGitStatus<CR>
 
 " coc.nvim {{{1
 nmap <expr> <silent> <C-d> <SID>select_current_word()
@@ -186,8 +197,7 @@ command! -nargs=0 Import   :call     CocAction('runCommand', 'editor.action.orga
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Fern {{{1
-nnoremap <silent> <leader>t :Fern . -drawer<CR>
+nnoremap <silent> <leader>t :Fern . -drawer -toggle<CR>
 nnoremap <silent> <leader>e :Fern . <CR>
 let g:fern#renderer = "nerdfont"
 let g:fern#default_hidden = 1
-
