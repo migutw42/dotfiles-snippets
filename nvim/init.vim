@@ -26,6 +26,7 @@ Plug 'vim-test/vim-test'
 Plug 'puremourning/vimspector'
 Plug 'liuchengxu/vista.vim'
 Plug 'iberianpig/tig-explorer.vim'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
 Plug 'lambdalisue/fern.vim'
 Plug 'antoinemadec/FixCursorHold.nvim'
@@ -87,6 +88,11 @@ nnoremap <silent> <C-h> <C-w>h
 nnoremap <silent> <C-j> <C-w>j
 nnoremap <silent> <C-k> <C-w>k
 nnoremap <silent> <C-l> <C-w>l
+nnoremap <silent> <Leader>h <C-w>h
+nnoremap <silent> <Leader>j <C-w>j
+nnoremap <silent> <Leader>k <C-w>k
+nnoremap <silent> <Leader>l <C-w>l
+
 nnoremap <silent> <ESC><ESC> :nohl<CR>
 nnoremap <silent> gn :bnext<CR>
 nnoremap <silent> gb :bprevious<CR>
@@ -201,3 +207,19 @@ nnoremap <silent> <leader>t :Fern . -drawer -toggle<CR>
 nnoremap <silent> <leader>e :Fern . <CR>
 let g:fern#renderer = "nerdfont"
 let g:fern#default_hidden = 1
+
+" Fcitx {{{1
+let g:input_toggle = 1
+function! Fcitx2en()
+  if executable("fcitx-remote") 
+    let s:input_status = system("fcitx-remote")
+    if s:input_status == 2
+      let g:input_toggle = 1
+      let l:a = system("fcitx-remote -c")
+    endif
+  endif
+endfunction
+
+set ttimeoutlen=150
+"Leave Insert mode
+autocmd InsertLeave * call Fcitx2en()
