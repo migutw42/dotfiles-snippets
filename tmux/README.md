@@ -12,5 +12,5 @@ $ brew install tmux
 ## 設定ファイルパス
 
 ```
-~/.tmux.conf
+~/.config/tmux.conf
 ```
