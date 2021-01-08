@@ -17,8 +17,8 @@ sudo apt install ranger
 ```bash
 ranger --copy-config=all
 sed -i -e 's/set draw_borders none/set draw_borders both/g' ~/.config/ranger/rc.conf 
-sed -i -e 's/# set preview_images false/set preview_images true/g' ~/.config/ranger/rc.conf 
+sed -i -e 's/set preview_images false/set preview_images true/g' ~/.config/ranger/rc.conf 
 
-git clone https://github.com/alexanderjeurissen/ranger_devicons.git
+git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
 echo "default_linemode devicons" >> $HOME/.config/ranger/rc.conf
 ```
