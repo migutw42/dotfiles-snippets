@@ -1,6 +1,7 @@
 " plugins {{{1
 call plug#begin('~/.config/nvim/plugged')
 
+Plug 'dart-lang/dart-vim-plugin'
 Plug 'voldikss/vim-floaterm'
 Plug 'jiangmiao/auto-pairs'
 Plug 'editorconfig/editorconfig-vim'
@@ -12,7 +13,6 @@ Plug 'junegunn/fzf.vim'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'antoinemadec/coc-fzf'
-Plug 'yuki-ycino/fzf-preview.vim', { 'branch': 'release', 'do': ':UpdateRemotePlugins' }
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -41,13 +41,15 @@ Plug 'moll/vim-bbye'
 call plug#end()
 
 let g:coc_global_extensions = [
-      \  'coc-yank'
+      \  'coc-fzf-preview'
+      \, 'coc-yank'
+      \, 'coc-json'
       \, 'coc-tsserver'
       \, 'coc-snippets'
       \, 'coc-prettier'
       \, 'coc-pairs'
-      \, 'coc-fzf-preview'
       \, 'coc-rust-analyzer'
+      \, 'coc-flutter'
       \, ]
 
 " editor {{{1
@@ -118,15 +120,15 @@ let g:airline_powerline_fonts = 1
 " fzf.vim {{{1
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
 
-nnoremap <silent> <Leader>f :<C-u>FzfPreviewProjectFiles<CR>
-nnoremap <silent> <Leader>F :<C-u>FzfPreviewDirectoryFiles<CR>
-nnoremap <silent> <Leader>b :<C-u>FzfPreviewBuffers<CR>
-nnoremap <silent> <Leader>/ :<C-u>FzfPreviewLines -add-fzf-arg=--no-sort -add-fzf-arg=--query="'"<CR>
-nnoremap <Leader>? :<C-u>FzfPreviewProjectGrep<Space>
+nnoremap <silent> <Leader>f :<C-u>CocCommand fzf-preview.ProjectFiles<CR>
+nnoremap <silent> <Leader>F :<C-u>CocCommand fzf-preview.DirectoryFiles<CR>
+nnoremap <silent> <Leader>b :<C-u>CocCommand fzf-preview.Buffers<CR>
+nnoremap <silent> <Leader>/ :<C-u>CocCommand fzf-preview.Lines -add-fzf-arg=--no-sort -add-fzf-arg=--query="'"<CR>
+nnoremap <Leader>? :<C-u>CocCommand fzf-preview.ProjectGrep<Space>
 nnoremap <silent> <Leader>c :Commands<CR>
 nnoremap <silent> <Leader>C :CocFzfList<CR>
-nnoremap <silent> <Leader>g :FzfPreviewGitActions<CR>
-nnoremap <silent> <Leader>G :FzfPreviewGitStatus<CR>
+nnoremap <silent> <Leader>g :CocCommand fzf-preview.GitActions<CR>
+nnoremap <silent> <Leader>G :CocCommand fzf-preview.GitStatus<CR>
 
 " coc.nvim {{{1
 nmap <expr> <silent> <C-d> <SID>select_current_word()
@@ -223,3 +225,4 @@ endfunction
 set ttimeoutlen=150
 "Leave Insert mode
 autocmd InsertLeave * call Fcitx2en()
+
